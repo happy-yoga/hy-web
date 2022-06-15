@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node -r dotenv/config bin/hy-web.js"
+    "start": "node -r dotenv/config bin/hy-web.js",
+    "watch:start": "nodemon -e js,yml,yaml --exec 'npm run start'"
   },
   "author": "Falk Hoppe <falkhoppe81@gmail.com>",
   "license": "Apache-2.0",
@@ -15,7 +15,8 @@
   "devDependencies": {
     "eslint": "^8.17.0",
     "eslint-config-standard": "^17.0.0-1",
-    "eslint-plugin-node": "^11.1.0"
+    "eslint-plugin-node": "^11.1.0",
+    "nodemon": "^2.0.16"
   },
   "type": "module",
   "module": "index.js",
@@ -23,6 +24,8 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "helmet": "^5.1.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2",
+    "reversical": "^1.4.1"
   }
 }

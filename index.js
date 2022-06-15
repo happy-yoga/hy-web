@@ -1,11 +1,13 @@
-import express from 'express'
-import helmet from 'helmet'
-import morgan from 'morgan'
+import { NamedRouter, routes } from 'reversical'
 
-const app = express()
-app.use(helmet())
-app.use(morgan('combined'))
+import { router as landingPageRouter } from './lib/controllers/landing-page.js'
 
-export default config => {
-  return app
-}
+import app from './lib/app.js'
+
+app.locals.routes = routes
+
+const namedRouter = new NamedRouter(app)
+
+namedRouter.use('landing-page', '/', landingPageRouter)
+
+export default app
