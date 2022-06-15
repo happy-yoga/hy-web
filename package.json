@@ -10,5 +10,10 @@
   "description": "",
   "bin": {
     "hy-web": "bin/hy-web.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "eslint-config-standard": "^17.0.0-1",
+    "eslint-plugin-node": "^11.1.0"
   }
 }
