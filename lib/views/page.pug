@@ -1,0 +1,12 @@
+include ./headline-and-text
+
+h1= page.title
+
+if page.contentElements
+  each contentElement in page.contentElements.entries
+    if contentElement.contentTypeId
+      +#{contentElement.contentTypeId}(contentElement)
+
+
+//- pre
+  = JSON.stringify(page, null, 2)

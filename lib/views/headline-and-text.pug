@@ -1,0 +1,3 @@
+mixin headlineAndText(entry)
+  h2= entry.headline
+  p!= documentToHtmlString(entry.text)
