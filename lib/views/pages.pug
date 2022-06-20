@@ -11,3 +11,6 @@ block content
       p= `Created at: ${page.createdAt}`
       p= `Updated at: ${page.updatedAt}`
       p= `Content-Element Count: ${page.contentElements && page.contentElements.entries.length}`
+
+  if itemRegistry
+    pre= JSON.stringify(itemRegistry)

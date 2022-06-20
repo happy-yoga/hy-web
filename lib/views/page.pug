@@ -6,7 +6,7 @@ block content
   h1= page.title
 
   if page.contentElements
-    each contentElement in page.contentElements.entries
+    each contentElement in page.contentElements
       if contentElement.contentTypeId
         +#{contentElement.contentTypeId}(contentElement)
 
