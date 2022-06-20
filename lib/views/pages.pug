@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  include components/index
+
+  h1 Alle Seiten
+
+  if pages
+    each page in pages
+      h2= page.title
+      p= `Created at: ${page.createdAt}`
+      p= `Updated at: ${page.updatedAt}`
+      p= `Content-Element Count: ${page.contentElements && page.contentElements.entries.length}`

@@ -26,6 +26,6 @@ app.locals.assetUrl = assetUrl
 
 const namedRouter = new NamedRouter(app)
 
-namedRouter.use('landing-page', '/', pagesRouter)
+namedRouter.use('page', '/', pagesRouter)
 
 export default app
