@@ -1,12 +1,15 @@
-include ./headline-and-text
+extends layout
 
-h1= page.title
+block content
+  include components/index
 
-if page.contentElements
-  each contentElement in page.contentElements.entries
-    if contentElement.contentTypeId
-      +#{contentElement.contentTypeId}(contentElement)
+  h1= page.title
+
+  if page.contentElements
+    each contentElement in page.contentElements.entries
+      if contentElement.contentTypeId
+        +#{contentElement.contentTypeId}(contentElement)
 
 
-//- pre
-  = JSON.stringify(page, null, 2)
+  //- pre
+    = JSON.stringify(page, null, 2)
