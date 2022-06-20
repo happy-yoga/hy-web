@@ -1,8 +1,7 @@
 import { NamedRouter, routes } from 'reversical'
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 import config from './lib/config.js'
-import { init as initializeContentful } from './lib/clients/contentful.js'
+import { init as initializeContentful, documentToHtmlString } from './lib/clients/contentful.js'
 import { init as initComponentLibAssets, assetUrl } from './lib/assets.js'
 import { router as pagesRouter } from './lib/controllers/pages.js'
 
