@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Happy Yoga
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.css")
+    link(rel="stylesheet" href=assetUrl('hy-pattern-lib.css') crossorigin="anonymous")
+
+    script(src=assetUrl('hy-components.js') type="module" crossorigin="anonymous" defer)
+  body
+    block heroTeaser
+
+    scroll-foam
+      main
+        content-container
+          block content
+
+      footer
+        footer-section.text-right
+          h4 Links
+          ul.unstyled
+            li
+              a(href="#") Schwangerschaftsyoga
+            li
+              a(href="#") Impressum
+            li
+              a(href="#") Datenschutz
+
+
+        footer-section
+          h4 Kontakt
+          dl.list-style
+            dt Telefon:
+            dd +49 201 53697013
+
+            dt Mobil:
+            dd +49 177 7976877
+
+            dt E-Mail:
+            dd
+              a(href="mailto://info@happy-yoga.de") info@happy-yoga.de
