@@ -8,8 +8,23 @@ html(lang="en")
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.css")
     link(rel="stylesheet" href=assetUrl('hy-pattern-lib.css') crossorigin="anonymous")
 
+    script(src="//unpkg.com/@ungap/custom-elements/es.js" defer)
     script(src=assetUrl('hy-components.js') type="module" crossorigin="anonymous" defer)
   body
+    nav
+      top-page-menu
+        button(is="nav-button" type="button")
+
+        ul.unstyled
+          li
+            a(href="/").link Home
+          li
+            a(href="/").link Kurse
+          li
+            a(href="/").link Preise
+          li
+            a(href="/").button Anmeldung
+
     block heroTeaser
 
     scroll-foam
@@ -18,7 +33,7 @@ html(lang="en")
           block content
 
       footer
-        footer-section.text-right
+        footer-section
           h4 Links
           ul.unstyled
             li
