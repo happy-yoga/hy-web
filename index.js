@@ -10,7 +10,6 @@ import app from './lib/app.js'
 await initializeContentful()
 await initComponentLibAssets()
 
-app.locals = app.locals || {}
 app.locals.routes = routes
 app.locals.documentToHtmlString = documentToHtmlString
 

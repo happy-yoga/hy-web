@@ -11,13 +11,10 @@ block heroTeaser
 block content
   include components/index
 
-  //- h1= page.title
-
-
-  //- if page.contentElements
-    //- each contentElement in page.contentElements
-    //-   if contentElement.contentTypeId
-    //-     +#{contentElement.contentTypeId}(contentElement)
+  if page.contentElements
+    each contentElement in page.contentElements
+      if contentElement.contentTypeId
+        +#{contentElement.contentTypeId}(contentElement)
 
 
   //- pre
