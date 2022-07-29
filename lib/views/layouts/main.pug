@@ -3,7 +3,7 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover")
 
     - const metaData = page.metaData || {}
     - const fallbackPageTitle = "Happy Yoga"
@@ -23,6 +23,7 @@ html(lang="en")
 
     script(src="//unpkg.com/@ungap/custom-elements/es.js" defer)
     script(src=assetUrl('hy-components.js') type="module" crossorigin="anonymous" defer)
+
   body
     nav
       top-page-menu
@@ -69,3 +70,16 @@ html(lang="en")
             dt E-Mail:
             dd
               a(href="mailto://info@happy-yoga.de") info@happy-yoga.de
+
+    script.
+      console.log(window.navigator.platform)
+      if([
+        'iPad Simulator',
+        'iPhone Simulator',
+        'iPod Simulator',
+        'iPad',
+        'iPhone',
+        'iPod'
+      ].includes(navigator.platform)) {
+        document?.body.classList.add('ios')
+      }
