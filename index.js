@@ -6,6 +6,7 @@ import { init as initComponentLibAssets, assetUrl } from './lib/assets.js'
 import { router as pagesRouter } from './lib/controllers/pages.js'
 
 import app from './lib/app.js'
+import { PageList } from './lib/models/page-list.js'
 
 await initializeContentful()
 await initComponentLibAssets()
@@ -21,6 +22,12 @@ if (config.localAssetDevelopment) {
 }
 
 app.locals.assetUrl = assetUrl
+
+app.use((_req, _res, next) => {
+  app.locals.mainMenu = PageList.findBySlug('main-menu')
+  app.locals.footerLinks = PageList.findBySlug('footer-links')
+  next()
+})
 
 const namedRouter = new NamedRouter(app)
 
