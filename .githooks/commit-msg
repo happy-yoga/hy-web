@@ -1,0 +1,18 @@
+# check if package.json contains dependencies linked to the local file system (usually by using `npm link`)
+# Usually this is a local dev artifact and should be changed to the npm-repo based version reference.
+#
+# Examples:
+#
+# BAD: { ..."@innoq/aotc-component-lib": "file:../../../github.com/innoq/aotc-component-lib", ..}
+# GOOD: { ..."@innoq/aotc-component-lib": ">=2.2.5", ..}
+
+if git diff --name-only --staged |grep "package.json" > /dev/null; then # check if package.json is part of the committed files
+  if cat package.json |grep "file:"; then # test if package.json has file refs
+    echo "\ncommit rejected!\n"
+    echo "package.json contains local file-paths. Please reference a released npm-repo version!"
+    exit 1
+  fi
+fi
+
+# message seems to be ok, go for it :)
+exit 0

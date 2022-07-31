@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node -r dotenv/config bin/hy-web.js",
-    "watch:start": "nodemon -e js,yml,yaml --exec 'npm run start'"
+    "watch:start": "nodemon -e js,yml,yaml --exec 'npm run start'",
+    "install-git-hooks": "git config --local core.hooksPath .githooks/"
   },
   "author": "Falk Hoppe <falkhoppe81@gmail.com>",
   "license": "Apache-2.0",
