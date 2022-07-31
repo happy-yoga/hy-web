@@ -15,9 +15,6 @@ html(lang="en")
     if metaData.keywords && metaData.keywords.length > 0
       meta(name="keywords" content=metaData.keywords.join(','))
 
-    link(rel="preconnect" href="https://fonts.googleapis.com")
-    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigi)
-    link(href="https://fonts.googleapis.com/css2?family=Syne&display=swap" rel="stylesheet")
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.css")
     link(rel="stylesheet" href=assetUrl('hy-pattern-lib.css') crossorigin="anonymous")
 
@@ -72,7 +69,6 @@ html(lang="en")
               a(href="mailto://info@happy-yoga.de") info@happy-yoga.de
 
     script.
-      console.log(window.navigator.platform)
       if([
         'iPad Simulator',
         'iPhone Simulator',
