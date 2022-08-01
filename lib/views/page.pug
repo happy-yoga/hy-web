@@ -14,7 +14,8 @@ block content
   if page.contentElements
     each contentElement in page.contentElements
       if contentElement.contentTypeId
-        +#{contentElement.contentTypeId}(contentElement)
+        content-section
+          +#{contentElement.contentTypeId}(contentElement)
 
 
   //- pre
