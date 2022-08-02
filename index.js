@@ -4,6 +4,7 @@ import config from './lib/config.js'
 import { init as initializeContentful, documentToHtmlString } from './lib/clients/contentful.js'
 import { init as initComponentLibAssets, assetUrl } from './lib/assets.js'
 import { router as pagesRouter } from './lib/controllers/pages.js'
+import { router as webHookRouter } from './lib/controllers/web-hooks.js'
 
 import app from './lib/app.js'
 import { PageList } from './lib/models/page-list.js'
@@ -32,5 +33,6 @@ app.use((_req, _res, next) => {
 const namedRouter = new NamedRouter(app)
 
 namedRouter.use('page', '/', pagesRouter)
+namedRouter.use('webhooks', '/web-hook', webHookRouter)
 
 export default app
