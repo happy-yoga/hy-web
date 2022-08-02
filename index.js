@@ -33,6 +33,6 @@ app.use((_req, _res, next) => {
 const namedRouter = new NamedRouter(app)
 
 namedRouter.use('page', '/', pagesRouter)
-namedRouter.use('webhooks', '/web-hook', webHookRouter)
+namedRouter.use('webhook', '/web-hook', webHookRouter)
 
 export default app
