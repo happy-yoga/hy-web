@@ -7,12 +7,12 @@ on:
 
 jobs:
   build-preview:
-    environment: production
+    environment: preview
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "hy-web-prod" #Must be unique in Heroku
+          heroku_app_name: "hy-web-preview" #Must be unique in Heroku
           heroku_email: "info@happyyoga.de"
