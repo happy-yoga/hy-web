@@ -42,29 +42,7 @@ html(lang="en")
           block content
 
       footer
-        footer-section
-          h4 Links
-          if footerLinks
-            ul.unstyled
-              each page in footerLinks.pages
-                li
-                  a(href=routes.page.bySlug({ slug: page.slug }))= page.title
-
-
-
-        footer-section
-          h4 Kontakt
-          dl.list-style
-            dt Telefon:
-            dd +49 201 53697013
-
-            dt Mobil:
-            dd +49 177 7976877
-
-            dt E-Mail:
-            dd
-              a(href="mailto://info@happy-yoga.de") info@happy-yoga.de
-
+        include ./footer-section
     script.
       if([
         'iPad Simulator',

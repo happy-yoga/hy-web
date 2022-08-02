@@ -1,0 +1,7 @@
+mixin imageTeaser(entry)
+  //- pre= debugObject(entry.link)
+  image-teaser(style=`--image-teaser-background-image: url(${entry.backgroundImage.url})`)
+    unless (entry.showLinkAsActionButton)
+      a.wrapping-link(href=entry.link.url)
+    else
+      a.button(href=entry.link.url)= entry.link.linkLabel
