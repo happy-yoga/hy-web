@@ -38,7 +38,6 @@ const namedRouter = new NamedRouter(app)
 namedRouter.use('webhook', '/web-hook', webHookRouter)
 
 if (config.basicAuth) {
-  console.log('WITH BASIC AUTH ENABLED!!')
   app.use(basicAuth({
     users: { [config.basicAuth.username]: config.basicAuth.password },
     challenge: true,
