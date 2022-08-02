@@ -6,7 +6,7 @@ on:
       - '*'
 
 jobs:
-  build-demo:
+  build-preview:
     environment: preview
     runs-on: ubuntu-latest
     steps:
