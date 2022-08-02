@@ -1,9 +1,8 @@
 name: Deploy Production
 
 on:
-  push:
-    repository_dispatch:
-      types: [trigger-workflow-production]
+  repository_dispatch:
+    types: [trigger-workflow-production]
 
 jobs:
   build-prod:

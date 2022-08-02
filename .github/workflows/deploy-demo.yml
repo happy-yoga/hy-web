@@ -6,8 +6,6 @@ on:
       - main
 
 jobs:
-  strategy:
-    max-parallel: 1
   build-demo:
     runs-on: ubuntu-latest
     steps:
