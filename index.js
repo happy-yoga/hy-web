@@ -1,3 +1,6 @@
+import crypto from 'crypto'
+import basicAuth from 'express-basic-auth'
+
 import { NamedRouter, routes } from 'reversical'
 
 import config from './lib/config.js'
@@ -32,7 +35,17 @@ app.use((_req, _res, next) => {
 
 const namedRouter = new NamedRouter(app)
 
-namedRouter.use('page', '/', pagesRouter)
 namedRouter.use('webhook', '/web-hook', webHookRouter)
+
+if (config.basicAuth) {
+  console.log('WITH BASIC AUTH ENABLED!!')
+  app.use(basicAuth({
+    users: { [config.basicAuth.username]: config.basicAuth.password },
+    challenge: true,
+    realm: crypto.randomBytes(64).toString('hex')
+  }))
+}
+
+namedRouter.use('page', '/', pagesRouter)
 
 export default app
