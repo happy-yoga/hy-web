@@ -3,9 +3,9 @@ extends layouts/main
 block heroTeaser
   //- pre= JSON.stringify(page.heroTeaser, null, 2)
   if page.heroTeaser
-    hero-teaser.with-center-stage-image(style=`--bg-image: url(${page.heroTeaser.backgroundImageUrl})`)
+    hero-teaser.with-center-stage-image(style=`--bg-image: url(${page.heroTeaser.backgroundImage.url})`)
       wandering-teaser-image(img="#hy-hero-logo")
-        img#hy-hero-logo(src=page.heroTeaser.centerImageUrl alt="HappyYoga")
+        img#hy-hero-logo(src=page.heroTeaser.centerImage.url alt="HappyYoga")
 
 
 block content
