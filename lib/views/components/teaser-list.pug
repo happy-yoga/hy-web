@@ -1,7 +1,9 @@
 mixin teaserList(entry)
   h2= entry.title
   teaser-list
-    each teaser in entry.teasers
-      teaser-list-entry
-        +#{teaser.contentTypeId}(teaser)
+    if entry.teasers
+      each teaser in entry.teasers
+        teaser-list-entry
+          if teaser.contentTypeId
+            +#{teaser.contentTypeId}(teaser)
 
