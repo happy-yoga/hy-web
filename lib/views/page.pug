@@ -17,7 +17,8 @@ block content
         content-section
           if (contentElement.anchorName)
             a(name=`anchor-${contentElement.anchorName}`)
-          +#{contentElement.contentTypeId}(contentElement)
+          if contentElement && contentElement.contentTypeId
+            +#{contentElement.contentTypeId}(contentElement)
 
 
   //- pre
