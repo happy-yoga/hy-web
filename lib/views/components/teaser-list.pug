@@ -3,7 +3,7 @@ mixin teaserList(entry)
   teaser-list
     if entry.teasers
       each teaser in entry.teasers
-        teaser-list-entry
-          if teaser && teaser.contentTypeId
+        if teaser && teaser.contentTypeId
+          teaser-list-entry
             +#{teaser.contentTypeId}(teaser)
 
