@@ -4,6 +4,6 @@ mixin teaserList(entry)
     if entry.teasers
       each teaser in entry.teasers
         teaser-list-entry
-          if teaser.contentTypeId
+          if teaser && teaser.contentTypeId
             +#{teaser.contentTypeId}(teaser)
 
