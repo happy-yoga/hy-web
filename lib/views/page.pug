@@ -13,12 +13,11 @@ block content
 
   if page.contentElements
     each contentElement in page.contentElements
-      if contentElement.contentTypeId
+      if contentElement && contentElement.contentTypeId
         content-section
           if (contentElement.anchorName)
             a(name=`anchor-${contentElement.anchorName}`)
-          if contentElement && contentElement.contentTypeId
-            +#{contentElement.contentTypeId}(contentElement)
+          +#{contentElement.contentTypeId}(contentElement)
 
 
   //- pre
