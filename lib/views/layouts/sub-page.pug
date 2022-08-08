@@ -2,10 +2,13 @@ doctype html
 html(lang="en")
   head
     include header
+
   body
     nav
       top-page-menu
         button(is="nav-button" type="button")
+        top-menu-logo-wrapper
+          img#top-menu-logo(src=assetUrl('happy-yoga.svg') alt="HappyYoga")
 
         ul.unstyled
           if mainMenu
@@ -14,8 +17,6 @@ html(lang="en")
                 a.link(href=routes.page.bySlug({ slug: page.slug }))= page.title
           li
             a(href="/").button Anmeldung
-
-    block heroTeaser
 
     scroll-foam
       main

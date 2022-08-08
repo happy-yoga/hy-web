@@ -1,0 +1,19 @@
+meta(charset="UTF-8")
+meta(http-equiv="X-UA-Compatible", content="IE=edge")
+meta(name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover")
+
+- const metaData = page.metaData || {}
+- const fallbackPageTitle = "Happy Yoga"
+title= metaData.pageTitle ? metaData.pageTitle : fallbackPageTitle
+
+if metaData.pageDescription
+  meta(name="description" content=metaData.pageDescription)
+
+if metaData.keywords && metaData.keywords.length > 0
+  meta(name="keywords" content=metaData.keywords.join(','))
+
+link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.css")
+link(rel="stylesheet" href=assetUrl('hy-pattern-lib.css') crossorigin="anonymous")
+
+script(src="//unpkg.com/@ungap/custom-elements/es.js" defer)
+script(src=assetUrl('hy-components.js') type="module" crossorigin="anonymous" defer)
