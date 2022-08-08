@@ -29,7 +29,7 @@
     "express": "^4.18.1",
     "express-basic-auth": "^1.2.1",
     "helmet": "^5.1.1",
-    "hy-pattern-lib": "^1.6.3",
+    "hy-pattern-lib": "^1.6.4",
     "morgan": "^1.10.0",
     "pug": "^3.0.2",
     "reversical": "^1.4.1"
