@@ -2,10 +2,12 @@ doctype html
 html(lang="en")
   head
     include header
-  body
+  body.landing-page
     nav
       top-page-menu
         button(is="nav-button" type="button")
+        top-menu-logo-wrapper
+          img#top-menu-logo(src=assetUrl('happy-yoga.svg') alt="HappyYoga")
 
         ul.unstyled
           if mainMenu
