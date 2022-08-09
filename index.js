@@ -64,7 +64,6 @@ namedRouter.use('page', '/pages/', pagesRouter)
 
 app.use(
   capture(async (_req, res, _next) => {
-    console.log('400!!!!')
     res.status(404)
     res.render('4xx')
   })
