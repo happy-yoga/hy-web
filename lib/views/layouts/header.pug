@@ -15,5 +15,19 @@ if metaData.keywords && metaData.keywords.length > 0
 link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.css")
 link(rel="stylesheet" href=assetUrl('hy-pattern-lib.css') crossorigin="anonymous")
 
+script.
+  if([
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+  ].includes(navigator.platform)) {
+    document?.documentElement.classList.add('ios')
+  } else {
+    document?.documentElement.classList.add('not-ios')
+  }
+
 script(src="//unpkg.com/@ungap/custom-elements/es.js" defer)
 script(src=assetUrl('hy-components.js') type="module" crossorigin="anonymous" defer)

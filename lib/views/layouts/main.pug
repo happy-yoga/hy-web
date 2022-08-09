@@ -4,18 +4,7 @@ html(lang="en")
     include header
   body.landing-page
     nav
-      top-page-menu
-        button(is="nav-button" type="button")
-        top-menu-logo-wrapper
-          img#top-menu-logo(src=assetUrl('happy-yoga.svg') alt="HappyYoga")
-
-        ul.unstyled
-          if mainMenu
-            each page in mainMenu.pages
-              li
-                a.link(href=routes.page.bySlug({ slug: page.slug }))= page.title
-          li
-            a(href="/").button Anmeldung
+      include ./top-page-menu
 
     block heroTeaser
 
@@ -26,14 +15,3 @@ html(lang="en")
 
       footer
         include ./footer-section
-    script.
-      if([
-        'iPad Simulator',
-        'iPhone Simulator',
-        'iPod Simulator',
-        'iPad',
-        'iPhone',
-        'iPod'
-      ].includes(navigator.platform)) {
-        document?.body.classList.add('ios')
-      }
