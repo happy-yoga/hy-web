@@ -2,6 +2,7 @@ import crypto from 'crypto'
 import basicAuth from 'express-basic-auth'
 
 import { NamedRouter, routes } from 'reversical'
+import { capture } from './lib/helpers/app-helpers.js'
 
 import config from './lib/config.js'
 import { init as initializeContentful, documentToHtmlString } from './lib/clients/contentful.js'
@@ -60,5 +61,18 @@ Sitemap: https://www.happyyoga.de/sitemap.xml
 app.use('/', redirectsRouter)
 
 namedRouter.use('page', '/pages/', pagesRouter)
+
+app.use(
+  capture(async (_req, res, _next) => {
+    console.log('400!!!!')
+    res.status(404)
+    res.render('4xx')
+  })
+)
+
+app.use((_error, _req, res, _next) => {
+  res.status(500)
+  res.render('5xx')
+})
 
 export default app
