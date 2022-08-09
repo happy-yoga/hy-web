@@ -5,7 +5,8 @@ block heroTeaser
   if page.heroTeaser
     hero-teaser.with-center-stage-image(style=`--bg-image: url(${page.heroTeaser.backgroundImage.url})`)
       wandering-teaser-image(img="#hy-hero-logo")
-        img#hy-hero-logo(src=page.heroTeaser.centerImage.url alt="HappyYoga")
+        a(href="/pages/landing-page")
+          img#hy-hero-logo(src=page.heroTeaser.centerImage.url alt="HappyYoga")
 
 
 block content
