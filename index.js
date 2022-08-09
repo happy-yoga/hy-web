@@ -12,6 +12,7 @@ import { router as redirectsRouter } from './lib/controllers/redirects.js'
 
 import app from './lib/app.js'
 import { PageList } from './lib/models/page-list.js'
+import { sitemapController } from './lib/controllers/sitemap.js'
 
 await initializeContentful()
 await initComponentLibAssets()
@@ -34,8 +35,6 @@ app.use((_req, _res, next) => {
   next()
 })
 
-app.use('/', redirectsRouter)
-
 const namedRouter = new NamedRouter(app)
 
 namedRouter.use('webhook', '/web-hook', webHookRouter)
@@ -47,6 +46,18 @@ if (config.basicAuth) {
     realm: crypto.randomBytes(64).toString('hex')
   }))
 }
+
+app.use('/sitemap.xml', sitemapController)
+app.use('/robots.txt', (_req, res) => {
+  res.setHeader('Content-Type', 'text/plain')
+  res.send(`
+User-agent: *
+Allow: /
+
+Sitemap: https://www.happyyoga.de/sitemap.xml
+`)
+})
+app.use('/', redirectsRouter)
 
 namedRouter.use('page', '/pages/', pagesRouter)
 
