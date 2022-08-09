@@ -8,6 +8,7 @@ import { init as initializeContentful, documentToHtmlString } from './lib/client
 import { init as initComponentLibAssets, assetUrl } from './lib/assets.js'
 import { router as pagesRouter } from './lib/controllers/pages.js'
 import { router as webHookRouter } from './lib/controllers/web-hooks.js'
+import { router as redirectsRouter } from './lib/controllers/redirects.js'
 
 import app from './lib/app.js'
 import { PageList } from './lib/models/page-list.js'
@@ -33,6 +34,8 @@ app.use((_req, _res, next) => {
   next()
 })
 
+app.use('/', redirectsRouter)
+
 const namedRouter = new NamedRouter(app)
 
 namedRouter.use('webhook', '/web-hook', webHookRouter)
@@ -45,6 +48,6 @@ if (config.basicAuth) {
   }))
 }
 
-namedRouter.use('page', '/', pagesRouter)
+namedRouter.use('page', '/pages/', pagesRouter)
 
 export default app
