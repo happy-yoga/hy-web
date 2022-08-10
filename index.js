@@ -59,6 +59,27 @@ Sitemap: https://www.happyyoga.de/sitemap.xml
 `)
 })
 app.use('/', redirectsRouter)
+app.get('/site.webmanifest', (_req, res) => {
+  res.json({
+    name: 'happyyoga.de',
+    short_name: 'happyyoga',
+    icons: [
+      {
+        src: assetUrl('android-chrome-192x192.png'),
+        sizes: '192x192',
+        type: 'image/png'
+      },
+      {
+        src: assetUrl('android-chrome-512x512.png'),
+        sizes: '512x512',
+        type: 'image/png'
+      }
+    ],
+    theme_color: '#ffffff',
+    background_color: '#ffffff',
+    display: 'standalone'
+  })
+})
 
 namedRouter.use('page', '/pages/', pagesRouter)
 
