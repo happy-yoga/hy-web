@@ -34,7 +34,7 @@ if (config.basicAuth) {
   app.use(basicAuth({
     users: { [config.basicAuth.username]: config.basicAuth.password },
     challenge: true,
-    realm: crypto.randomBytes(64).toString('hex')
+    realm: config.basicAuth.realm || crypto.randomBytes(64).toString('hex')
   }))
 }
 
