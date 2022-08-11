@@ -1,5 +1,6 @@
 mixin fullWidthImageTeaser(entry)
-  full-width-image-teaser(style=`--background-image: url(${entry.backgroundImage.url})`)
+  //- text-box-right
+  full-width-image-teaser(style=`--background-image: url(${entry.backgroundImage.url})` class=`text-box-${entry.textBoxDirection}`)
     full-width-image-teaser-body
       a(href=entry.link.url)
         h2= entry.headline
