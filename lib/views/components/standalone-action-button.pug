@@ -1,3 +1,6 @@
 mixin standaloneActionButton(entry)
   standalone-action-button
-    a.button(href=entry.link.url)= entry.link.linkLabel
+    a.button(href=entry.link.url class=`${entry.link.external ? 'external-link' : ''}`)
+      if entry.link.external
+          span.icon
+      = entry.link.linkLabel
