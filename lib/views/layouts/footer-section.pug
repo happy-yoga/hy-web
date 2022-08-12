@@ -8,15 +8,20 @@ footer-section
 
 
 
-footer-section
-  h4 Kontakt
-  dl.list-style
-    dt Telefon:
-    dd +49 201 53697013
+if footerMetaInformation
+  - const { fields } = footerMetaInformation
+  footer-section
+    h4 Kontakt
+    dl.list-style
+      if fields.phoneNumber
+        dt Telefon:
+        dd= fields.phoneNumber.de
 
-    dt Mobil:
-    dd +49 177 7976877
+      if fields.mobilePhone
+        dt Mobil:
+        dd= fields.mobilePhone.de
 
-    dt E-Mail:
-    dd
-      a(href="mailto://info@happy-yoga.de") info@happy-yoga.de
+      if fields.eMailAddress
+      dt E-Mail:
+      dd
+        a(href=`mailto://${fields.eMailAddress.de}`)= fields.eMailAddress.de

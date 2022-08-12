@@ -15,16 +15,11 @@ import { router as redirectsRouter } from './lib/controllers/redirects.js'
 import app from './lib/app.js'
 import { PageList } from './lib/models/page-list.js'
 import { sitemapController } from './lib/controllers/sitemap.js'
+import { MetaInformation } from './lib/models/meta-information.js'
 
 await initializeContentful()
 app.locals.documentToHtmlString = documentToHtmlString
 app.locals.routes = routes
-
-app.use((_req, _res, next) => {
-  app.locals.mainMenu = PageList.findBySlug('main-menu')
-  app.locals.footerLinks = PageList.findBySlug('footer-links')
-  next()
-})
 
 const namedRouter = new NamedRouter(app)
 
@@ -71,16 +66,26 @@ app.get('/site.webmanifest', (_req, res) => {
   })
 })
 
+app.use((_req, _res, next) => {
+  app.locals.mainMenu = PageList.findBySlug('main-menu')
+  app.locals.footerLinks = PageList.findBySlug('footer-links')
+  app.locals.footerMetaInformation = MetaInformation.findBySlug('footer-meta-information')
+  next()
+})
+
 namedRouter.use('page', '/pages/', pagesRouter)
 
 app.use(
-  capture(async (_req, res, _next) => {
+  capture(async (req, res, _next) => {
+    console.log('Not Found: ', req.originalUrl)
     res.status(404)
     res.render('4xx')
   })
 )
 
-app.use((_error, _req, res, _next) => {
+app.use((error, _req, res, _next) => {
+  console.log('------------------------\n\n', '5xx Error:', error.message, '\n\n------------------------\n')
+  console.log(error.stack)
   res.status(500)
   res.render('5xx')
 })
