@@ -1,0 +1,13 @@
+mixin galleryImage(image)
+  image-gallery-thumbnail
+    a(href=image.url)
+      img(src=`${image.url}?fit=thumb&w=300`)
+
+mixin imageGallery(entry)
+  h2= entry.title
+  image-gallery
+    if entry.images
+      each image in entry.images
+        if image && image.contentTypeId
+          +galleryImage(image)
+
