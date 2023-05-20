@@ -32,6 +32,8 @@ if (config.basicAuth) {
   }))
 }
 
+app.use('/', redirectsRouter)
+
 app.use('/sitemap.xml', sitemapController)
 app.use('/robots.txt', (_req, res) => {
   res.setHeader('Content-Type', 'text/plain')
@@ -42,7 +44,7 @@ Allow: /
 Sitemap: https://www.happyyoga.de/sitemap.xml
 `)
 })
-app.use('/', redirectsRouter)
+
 app.get('/site.webmanifest', (_req, res) => {
   res.json({
     name: 'happyyoga.de',
