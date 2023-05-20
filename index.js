@@ -6,7 +6,7 @@ import { capture } from './lib/helpers/app-helpers.js'
 import { assetUrl } from './lib/assets.js'
 
 import config from './lib/config.js'
-import { init as initializeContentful, documentToHtmlString } from './lib/clients/contentful.js'
+import { documentToHtmlString } from './lib/clients/contentful.js'
 
 import { router as pagesRouter } from './lib/controllers/pages.js'
 import { router as webHookRouter } from './lib/controllers/web-hooks.js'
@@ -17,7 +17,6 @@ import { PageList } from './lib/models/page-list.js'
 import { sitemapController } from './lib/controllers/sitemap.js'
 import { MetaInformation } from './lib/models/meta-information.js'
 
-await initializeContentful()
 app.locals.documentToHtmlString = documentToHtmlString
 app.locals.routes = routes
 
