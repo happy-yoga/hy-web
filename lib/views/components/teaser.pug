@@ -11,11 +11,12 @@ mixin imageTeaser(entry)
         if entry.link.linkLabel
           span.link-text= entry.link.linkLabel
     else
-      if entry.headline
-        p.teaser-headline= entry.headline
-      if entry.text
-        p.teaser-text= entry.text
-      a.button(href=entry.link.url class=`${entry.link.external ? 'external-link' : ''}`)
-        if entry.link.external
-          span.icon
-        = entry.link.linkLabel
+      .action-button-teaser-wrapper
+        if entry.headline
+          p.teaser-headline= entry.headline
+        if entry.text
+          p.teaser-text= entry.text
+        a.button(href=entry.link.url class=`${entry.link.external ? 'external-link' : ''}`)
+          if entry.link.external
+            span.icon
+          = entry.link.linkLabel
