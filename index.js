@@ -37,8 +37,7 @@ app.use('/', redirectsRouter)
 app.use('/sitemap.xml', sitemapController)
 app.use('/robots.txt', (_req, res) => {
   res.setHeader('Content-Type', 'text/plain')
-  res.send(`
-User-agent: *
+  res.send(`User-agent: *
 Allow: /
 
 Sitemap: https://www.happyyoga.de/sitemap.xml
