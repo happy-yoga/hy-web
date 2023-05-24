@@ -1,4 +1,5 @@
 mixin headlineAndText(entry)
   headline-and-text
-    h2= entry.headline
+    if entry.showHeadline
+      h2= entry.headline
     p!= documentToHtmlString(entry.text)

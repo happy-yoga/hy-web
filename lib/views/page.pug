@@ -6,7 +6,9 @@ block content
   if page.contentElements
     each contentElement in page.contentElements
       if contentElement && contentElement.contentTypeId
-        content-section
+        - const smallElements = ['standaloneActionButton']
+        - const condensed = smallElements.includes(contentElement.contentTypeId) || contentElement.contentTypeId === 'headlineAndText' && !contentElement.text
+        content-section(class=condensed ? 'condensed' : '')
           if (contentElement.anchorName)
             a(name=`anchor-${contentElement.anchorName}`)
           +#{contentElement.contentTypeId}(contentElement)
