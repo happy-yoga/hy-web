@@ -1,5 +1,6 @@
 doctype html
 html(lang="de")
+  include ../components/social-links
   head
     include header
   body.landing-page
@@ -11,6 +12,7 @@ html(lang="de")
     scroll-foam
       main
         content-container
+          +socialLinks
           block content
 
       .location-map-container

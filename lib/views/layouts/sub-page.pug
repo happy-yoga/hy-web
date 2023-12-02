@@ -1,5 +1,6 @@
 doctype html
 html(lang="en")
+  include ../components/social-links
   head
     include header
 
@@ -10,6 +11,7 @@ html(lang="en")
     scroll-foam
       main
         content-container
+          +socialLinks
           h1= page.title
           block content
 
