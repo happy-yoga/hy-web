@@ -12,7 +12,8 @@ html(lang="en")
       main
         content-container
           +socialLinks
-          h1= page.title
+          if page
+            h1= page.title
           block content
 
       footer
