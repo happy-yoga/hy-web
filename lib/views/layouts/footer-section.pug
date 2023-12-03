@@ -24,6 +24,7 @@ footer-section
           a(href=`mailto://${fields.eMailAddress.de}`)= fields.eMailAddress.de
 
 section.footer-links
+  - const currentYear = new Date().getFullYear()
   h4 Links & more
   if footerLinks
     ul.unstyled
@@ -31,6 +32,6 @@ section.footer-links
         li
           a(href=routes.page.bySlug({ slug: page.slug }))= page.title
       li
-        |Copyright ©️ 2023
-        = " "
+        | Copyright ©️ 2023
+        = currentYear === 2023 ? " " : ` - ${currentYear} `
         a(href="https://www.happyyoga.de") happyyoga.de
