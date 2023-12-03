@@ -24,9 +24,13 @@ footer-section
           a(href=`mailto://${fields.eMailAddress.de}`)= fields.eMailAddress.de
 
 section.footer-links
-  h4 Links
+  h4 Links & more
   if footerLinks
     ul.unstyled
       each page in footerLinks.pages
         li
           a(href=routes.page.bySlug({ slug: page.slug }))= page.title
+      li
+        |Copyright ©️ 2023
+        = " "
+        a(href="https://www.happyyoga.de") happyyoga.de
