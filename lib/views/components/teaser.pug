@@ -3,7 +3,7 @@ mixin imageTeaser(entry)
   //- pre= debugObject(entry.headline)
   standard-teaser(style=`--teaser-background-image: url(${entry.backgroundImage.url}); --teaser-background-color: ${entry.backgroundColor};` class=`${entry.link.linkLabel ? 'with-label' : ''} ${entry.textColorBrightness ? 'dark-font' : 'bright-font'}`)
     unless (entry.showLinkAsActionButton)
-      a.wrapping-link(href=entry.link.url class=`${entry.link.external ? 'external-link' : ''}`)
+      a.wrapping-link(href=entry.link.url class=(entry.link.external ? 'external-link' : false) target=(entry.link.external ? '_blank' : false))
         if entry.headline
           p.teaser-headline= entry.headline
         if entry.text
@@ -16,7 +16,7 @@ mixin imageTeaser(entry)
           p.teaser-headline= entry.headline
         if entry.text
           p.teaser-text= entry.text
-        a.button(href=entry.link.url class=`${entry.link.external ? 'external-link' : ''}`)
+        a.button(href=entry.link.url class=`${entry.link.external ? 'external-link' : ''}` target=(entry.link.external ? '_blank' : false))
           if entry.link.external
             span.icon
           = entry.link.linkLabel
