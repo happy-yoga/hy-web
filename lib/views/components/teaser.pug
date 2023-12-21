@@ -16,7 +16,7 @@ mixin imageTeaser(entry)
           p.teaser-headline= entry.headline
         if entry.text
           p.teaser-text= entry.text
-        a.button(href=entry.link.url class=`${entry.link.external ? 'external-link' : ''}` target=(entry.link.external ? '_blank' : false))
-          if entry.link.external
-            span.icon
-          = entry.link.linkLabel
+      a.button(href=entry.link.url class=`${entry.link.external ? 'external-link' : ''}` target=(entry.link.external ? '_blank' : false))
+        if entry.link.external
+          span.icon
+        = entry.link.linkLabel
