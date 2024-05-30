@@ -5,10 +5,10 @@ import app from '../index.js'
 
 import { init as initializeContentfulSynchLoop, synchronize } from '../lib/clients/contentful.js'
 
-const token = await synchronize() // wait for initial synch before starting server
+const response = await synchronize() // wait for initial synch before starting server
 
 const server = app.listen(config.port, () => {
   console.log(`started at http://localhost:${server.address().port}`)
 })
 
-await initializeContentfulSynchLoop(token)
+await initializeContentfulSynchLoop(response.nextSyncToken)
