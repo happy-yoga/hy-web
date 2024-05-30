@@ -14,7 +14,7 @@
     "hy-web": "bin/hy-web.js"
   },
   "devDependencies": {
-    "eslint": "^9.3.0",
+    "eslint": "^8",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-node": "^11.1.0",
     "nodemon": "^3.1.2"
